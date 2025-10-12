@@ -20,7 +20,8 @@ fn exec() {
         .arg("-XX:+ShowCodeDetailsInExceptionMessages")
         .arg("-cp")
         .arg(r"beatoraja.jar;ir/*")
-        .arg("bms.player.beatoraja.MainLoader");
+        .arg("bms.player.beatoraja.MainLoader")
+        .args(std::env::args().skip(1));
 
     println!("Starting beatoraja...");
     let _ = command.spawn().expect("Failed to run game");
