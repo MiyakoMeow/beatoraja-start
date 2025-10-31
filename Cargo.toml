@@ -5,4 +5,12 @@ edition = "2021"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
+[[bin]]
+name = "beatoraja-start"
+path = "src/bin/spawn.rs"
+
+[[bin]]
+name = "beatoraja-start-with-log"
+path = "src/bin/non-spawn.rs"
+
 [dependencies]
