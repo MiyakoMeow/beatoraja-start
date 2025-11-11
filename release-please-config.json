@@ -1,0 +1,6 @@
+{
+  ".": {
+    "package-name": "beatoraja-start",
+    "bump-minor-pre-major": true
+  }
+}
