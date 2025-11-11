@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.3.0](https://github.com/MiyakoMeow/beatoraja-start/compare/v0.2.0...v0.3.0) (2025-11-11)
+
+
+### Features
+
+* **ci:** split release scripts ([a249195](https://github.com/MiyakoMeow/beatoraja-start/commit/a249195efa3bb3b45f75068b8e72c9ce7418ebcb))
+
+
+### Bug Fixes
+
+* **ci:** use helper-bot for release-please ([4ca6faa](https://github.com/MiyakoMeow/beatoraja-start/commit/4ca6faa6e61c7161aab44cdc58b16305bdf0d091))
+
 ## [0.2.0](https://github.com/MiyakoMeow/beatoraja-start/compare/v0.1.2...v0.2.0) (2025-11-11)
 
 
