@@ -12,5 +12,5 @@
 ## 参考启动命令
 
 ```powershell
-.\jre\bin\javaw.exe -Xms1g -Xmx8g -XX:+UseZGC -XX:+DisableExplicitGC -XX:+TieredCompilation -XX:+UseNUMA -XX:+AlwaysPreTouch -XX:+UseLargePages -XX:-UsePerfData -XX:+UseThreadPriorities -XX:+ShowCodeDetailsInExceptionMessages -cp "beatoraja.jar;ir/*" bms.player.beatoraja.MainLoader
+.\jre\bin\javaw.exe -Xms1g -Xmx8g -XX:+UseZGC -XX:+DisableExplicitGC -XX:+TieredCompilation -XX:+UseNUMA -XX:+AlwaysPreTouch -XX:-UsePerfData -XX:+UseThreadPriorities -XX:+ShowCodeDetailsInExceptionMessages -cp "beatoraja.jar;ir/*" bms.player.beatoraja.MainLoader
 ```

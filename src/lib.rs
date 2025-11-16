@@ -10,7 +10,6 @@ fn add_common_args(mut command: Command) -> Command {
         .arg("-XX:+TieredCompilation")
         .arg("-XX:+UseNUMA")
         .arg("-XX:+AlwaysPreTouch")
-        .arg("-XX:+UseLargePages")
         .arg("-XX:-UsePerfData")
         .arg("-XX:+UseThreadPriorities")
         .arg("-XX:+ShowCodeDetailsInExceptionMessages")
