@@ -13,7 +13,7 @@ jobs:
   build-and-upload:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v6
       - name: Setup rustfmt and clippy
         uses: dtolnay/rust-toolchain@v1
         with:
