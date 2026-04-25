@@ -5,15 +5,7 @@ fn add_common_args(mut command: Command) -> Command {
         .arg("-Xms1g")
         .arg("-Xmx8g")
         .arg("-XX:+UseZGC")
-        .arg("-XX:+DisableExplicitGC")
-        .arg("-XX:+TieredCompilation")
-        .arg("-XX:+UseNUMA")
-        .arg("-XX:+AlwaysPreTouch")
-        .arg("-XX:-UsePerfData")
-        .arg("-XX:+UseThreadPriorities")
-        .arg("-XX:+ShowCodeDetailsInExceptionMessages")
-        .arg("-cp")
-        .arg(CLASSPATH)
+        .args(["-cp", CLASSPATH])
         .arg("bms.player.beatoraja.MainLoader")
         .args(std::env::args().skip(1));
     command
