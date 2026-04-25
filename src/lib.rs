@@ -20,6 +20,7 @@ const CLASSPATH: &str = "beatoraja.jar:ir/*";
 fn can_run(exe: &str) -> bool {
     Command::new(exe)
         .arg("-version")
+        .stdin(Stdio::null())
         .stdout(Stdio::null())
         .stderr(Stdio::null())
         .status()
