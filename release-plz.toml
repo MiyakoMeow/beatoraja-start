@@ -5,6 +5,7 @@ dependencies_update = true
 git_release_enable = true
 git_tag_enable = true
 release_always = true
+release_commits = "^feat|^fix|^refactor|^perf|^chore"
 pr_branch_prefix = "release-plz-"
 pr_labels = ["release"]
 pr_name = "chore: release v{{ version }}"
