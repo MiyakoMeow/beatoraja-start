@@ -1,4 +1,37 @@
 # Changelog
+## [0.2.2](https://github.com/MiyakoMeow/beatoraja-start/compare/v0.2.1...v0.2.2) - 2026-04-25
+
+
+### Bug Fixes
+
+- **(ci)** run release-plz on windows to fix cargo package verification ([#20](https://github.com/MiyakoMeow/beatoraja-start/pull/20))
+- **(ci)** disable semver_check to avoid cargo package failure on linux CI ([#19](https://github.com/MiyakoMeow/beatoraja-start/pull/19))
+- **(ci)** add git_only=true to use git tags for version detection ([#18](https://github.com/MiyakoMeow/beatoraja-start/pull/18))
+- **(ci)** remove persist-credentials false from release-plz workflow ([#17](https://github.com/MiyakoMeow/beatoraja-start/pull/17))
+- **(ci)** add release_commits to trigger release PRs on refactor/chore commits ([#14](https://github.com/MiyakoMeow/beatoraja-start/pull/14))
+
+
+### Chore
+
+- **(ci)** revert unnecessary release-plz config changes ([#22](https://github.com/MiyakoMeow/beatoraja-start/pull/22))
+- add stdin null to can_run for cleaner process spawning ([#15](https://github.com/MiyakoMeow/beatoraja-start/pull/15))
+- **(ci)** enable release_always to trigger release PRs without feat/fix commits ([#13](https://github.com/MiyakoMeow/beatoraja-start/pull/13))
+- **(deps)** bump actions/checkout from 4 to 6 ([#9](https://github.com/MiyakoMeow/beatoraja-start/pull/9))
+- **(deps)** bump EmbarkStudios/cargo-deny-action from 2.0.13 to 2.0.17 ([#8](https://github.com/MiyakoMeow/beatoraja-start/pull/8))
+
+
+### Features
+
+- simplify resolve_executable with unwrap_or ([#16](https://github.com/MiyakoMeow/beatoraja-start/pull/16))
+- add cross-platform support for non-Windows systems ([#10](https://github.com/MiyakoMeow/beatoraja-start/pull/10))
+
+
+### Refactoring
+
+- **(ci)** split CI checks into separate jobs and extract cargo-deny ([#12](https://github.com/MiyakoMeow/beatoraja-start/pull/12))
+- remove redundant and risky JVM args for Java 21+ ([#11](https://github.com/MiyakoMeow/beatoraja-start/pull/11))
+- migrate CI from release-please to release-plz and renovate to dependabot ([#7](https://github.com/MiyakoMeow/beatoraja-start/pull/7))
+
 
 ## [0.2.1](https://github.com/MiyakoMeow/beatoraja-start/compare/v0.2.0...v0.2.1) (2025-11-16)
 
