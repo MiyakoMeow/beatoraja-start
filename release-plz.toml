@@ -1,6 +1,7 @@
 [workspace]
 publish = false
 git_only = true
+semver_check = false
 changelog_update = true
 dependencies_update = true
 git_release_enable = true
