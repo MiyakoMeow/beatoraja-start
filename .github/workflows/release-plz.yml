@@ -52,8 +52,33 @@ jobs:
         uses: dtolnay/rust-toolchain@stable
 
       - name: Run release-plz to create GitHub release
+        id: release-plz
         uses: release-plz/action@v0.5
         with:
           command: release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Cache cargo build
+        if: ${{ steps.release-plz.outputs.releases_created == 'true' }}
+        uses: Swatinem/rust-cache@v2
+        with:
+          cache-on-failure: true
+          workspaces: |
+            . -> target
+
+      - name: Build release
+        if: ${{ steps.release-plz.outputs.releases_created == 'true' }}
+        run: cargo build --release
+
+      - name: Upload release assets
+        if: ${{ steps.release-plz.outputs.releases_created == 'true' }}
+        run: |
+          $tag = "${{ fromJSON(steps.release-plz.outputs.releases)[0].tag }}"
+          Get-ChildItem "target/release/*.exe" | ForEach-Object {
+            Write-Host "Uploading $($_.Name)"
+            gh release upload $tag "$_" --clobber
+          }
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: pwsh
