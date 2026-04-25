@@ -32,7 +32,7 @@ fn resolve_executable<'a>(candidates: &'a [&'a str]) -> &'a str {
         .iter()
         .copied()
         .find(|p| can_run(p))
-        .unwrap_or_else(|| candidates.last().copied().expect("no candidates provided"))
+        .unwrap_or(candidates.last().expect("no candidates provided"))
 }
 
 #[cfg(target_os = "windows")]
