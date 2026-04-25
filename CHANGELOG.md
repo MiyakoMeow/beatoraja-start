@@ -32,6 +32,13 @@
 - remove redundant and risky JVM args for Java 21+ ([#11](https://github.com/MiyakoMeow/beatoraja-start/pull/11))
 - migrate CI from release-please to release-plz and renovate to dependabot ([#7](https://github.com/MiyakoMeow/beatoraja-start/pull/7))
 
+## [0.2.3](https://github.com/MiyakoMeow/beatoraja-start/compare/v0.2.2...v0.2.3) - 2026-04-25
+
+
+### Chore
+
+- **(ci)** integrate build and upload into release-plz workflow ([#24](https://github.com/MiyakoMeow/beatoraja-start/pull/24))
+
 
 ## [0.2.1](https://github.com/MiyakoMeow/beatoraja-start/compare/v0.2.0...v0.2.1) (2025-11-16)
 
