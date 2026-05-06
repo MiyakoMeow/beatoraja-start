@@ -1,6 +1,6 @@
 # 此仓库之 AGENTS 准则
 
-Rust 项目（Cargo edition 2021）。beatoraja BMS 启动器——寻 JRE 之 `java`/`javaw`，以 `-Xms1g -Xmx8g -XX:+UseZGC` 起 `beatoraja.jar`。
+Rust 项目（Cargo edition 2024）。beatoraja BMS 启动器——寻 JRE 之 `java`/`javaw`，以 `-Xms1g -Xmx8g -XX:+UseZGC` 起 `beatoraja.jar`。
 
 ## 1. 零外部依赖
 
