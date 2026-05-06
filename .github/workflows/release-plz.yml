@@ -12,7 +12,7 @@ permissions:
 jobs:
   release-plz-pr:
     name: Release-plz PR
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     if: ${{ github.repository_owner == 'MiyakoMeow' }}
     permissions:
       contents: write
@@ -38,10 +38,13 @@ jobs:
 
   release-plz-release:
     name: Release-plz release
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     if: ${{ github.repository_owner == 'MiyakoMeow' }}
     permissions:
       contents: write
+    outputs:
+      releases_created: ${{ steps.release-plz.outputs.releases_created }}
+      releases: ${{ steps.release-plz.outputs.releases }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v6
@@ -59,8 +62,23 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+  build-release:
+    name: Build release assets
+    runs-on: windows-latest
+    needs: release-plz-release
+    if: ${{ needs.release-plz-release.result == 'success' && needs.release-plz-release.outputs.releases_created == 'true' }}
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-toolchain@stable
+
       - name: Cache cargo build
-        if: ${{ steps.release-plz.outputs.releases_created == 'true' }}
         uses: Swatinem/rust-cache@v2
         with:
           cache-on-failure: true
@@ -68,13 +86,11 @@ jobs:
             . -> target
 
       - name: Build release
-        if: ${{ steps.release-plz.outputs.releases_created == 'true' }}
         run: cargo build --release
 
       - name: Upload release assets
-        if: ${{ steps.release-plz.outputs.releases_created == 'true' }}
         run: |
-          $tag = "${{ fromJSON(steps.release-plz.outputs.releases)[0].tag }}"
+          $tag = "${{ fromJSON(needs.release-plz-release.outputs.releases)[0].tag }}"
           Get-ChildItem "target/release/*.exe" | ForEach-Object {
             Write-Host "Uploading $($_.Name)"
             gh release upload $tag "$_" --clobber
