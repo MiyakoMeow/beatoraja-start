@@ -15,6 +15,5 @@ If any problem encounters, try using `beatoraja-start-with-log.exe` with the sam
     -Xms1g -Xmx8g ^
     -XX:+UnlockExperimentalVMOptions -XX:+UseZGC -XX:+ZGenerational ^
     -XX:+ExitOnOutOfMemoryError -XX:+DisableExplicitGC ^
-    -XX:+UseTransparentHugePages ^
     -cp "beatoraja.jar;ir/*" bms.player.beatoraja.MainLoader
 ```

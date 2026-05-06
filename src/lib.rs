@@ -16,8 +16,6 @@ fn add_common_args(mut command: Command) -> Command {
         .arg("-XX:+ExitOnOutOfMemoryError")
         // 禁 System.gc()，防第三方库误触 ZGC 全量 cycle
         .arg("-XX:+DisableExplicitGC")
-        // Linux THP：降 ZGC 扫描时 TLB miss，其余平台 no-op
-        .arg("-XX:+UseTransparentHugePages")
         .args(["-cp", CLASSPATH])
         .arg("bms.player.beatoraja.MainLoader")
         .args(std::env::args().skip(1));
