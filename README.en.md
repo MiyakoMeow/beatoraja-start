@@ -11,5 +11,10 @@ If any problem encounters, try using `beatoraja-start-with-log.exe` with the sam
 ## Run command
 
 ```powershell
-.\jre\bin\javaw.exe -Xms1g -Xmx8g -XX:+UseZGC -cp "beatoraja.jar;ir/*" bms.player.beatoraja.MainLoader
+.\jre\bin\javaw.exe ^
+    -Xms1g -Xmx8g ^
+    -XX:+UnlockExperimentalVMOptions -XX:+UseZGC -XX:+ZGenerational ^
+    -XX:+ExitOnOutOfMemoryError -XX:+DisableExplicitGC ^
+    -XX:+UseTransparentHugePages ^
+    -cp "beatoraja.jar;ir/*" bms.player.beatoraja.MainLoader
 ```
